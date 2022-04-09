@@ -1,0 +1,99 @@
+<% include ./header %>
+
+  <body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
+
+
+    <!-- Content Header (Page header) -->
+    <div class="content-wrapper" style="min-height: 645px;">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Placement
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li>Placement</li>
+          <li class="active">Placement</li>
+        </ol>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <a href="/placement/placement-form" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-plus"></i>Form</a>
+                <a href="mailto:gaikwadmanisha4444@gmail.com?body=http://localhost:3000/placement/placement-form" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-share"></i> Share Link</a>
+
+              </div>
+              <div class="box-body">
+                <table id="placement_table" class="table table-bordered">
+                  <thead>
+
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Experience</th>
+                    <th>Company Name</th>
+                    <th>CV/Resume</th>
+                    <th>Scheduled DateTime</th>
+                    <th> Tools</th>
+                  </thead>
+                  <tbody>
+                    <% for (let i=0; i<result.length; i++) {%>
+
+                      <tr>
+                        <td>
+                          <%= result[i].FirstName %>
+                            <%= result[i].LastName %>
+                        </td>
+                        <td>
+                          <%= result[i].Contact %>
+                        </td>
+                        <td>
+                          <%= result[i].Address %>
+                        </td>
+                        <td>
+                          <%= result[i].DOB %>
+                        </td>
+                        <td>
+                          <%= result[i].Email %>
+                        </td>
+                        <td>
+                          <%= result[i].Experience %>
+                        </td>
+                        <td>
+                          <%= result[i].CompName %>
+                        </td>
+                        <td>
+                          <%= result[i].CV %>
+                        </td>
+                        <td>
+                          <%= result[i].select_time %>
+                            <%= result[i].select_date %>
+                        </td>
+                        <td><a data-toggle="modal" data-target="#schedule">
+                          <button class="btn btn-success btn-sm btn-flat"><i class="fa fa-calendar"></i> Schedule</button></a>
+
+                          <a href = "mailto:<%=result[i].Email%>?body=Your%20interview%20is%20scheduled%20on%20<%=result[i].select_date %>%20at%20<%= result[i].select_time %>"><button class="btn btn-danger btn-sm btn-flat"><i class="fa fa-send"></i> send</button></a>
+                        </td>
+
+                      </tr>
+                      <%}%>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    </div>
+
+    <% include ./footer %>
+    <% include ./placement_modal %>
+  </body>
