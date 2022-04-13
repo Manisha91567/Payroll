@@ -11,6 +11,7 @@ var employeeRouter = require('./routes/employee');
 var attendanceRouter = require('./routes/attendance');
 var placementRouter = require('./routes/placement');
 var payrollRouter = require('./routes/payroll');
+var departmentRouter = require('./routes/department');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/employee',employeeRouter);
 app.use('/attendance',attendanceRouter);
 app.use('/placement',placementRouter);
 app.use('/payroll',payrollRouter);
+app.use('/department',departmentRouter);
 
 
 

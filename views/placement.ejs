@@ -23,7 +23,7 @@
             <div class="box">
               <div class="box-header with-border">
                 <a href="/placement/placement-form" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-plus"></i>Form</a>
-                <a href="mailto:gaikwadmanisha4444@gmail.com?body=http://localhost:3000/placement/placement-form" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-share"></i> Share Link</a>
+                <a href="mailto:?body=http://localhost:3000/placement/placement-form" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-share"></i> Share Link</a>
 
               </div>
               <div class="box-body">
@@ -34,6 +34,7 @@
                     <th>Contact</th>
                     <th>Address</th>
                     <th>DOB</th>
+                    <th>Gender</th>
                     <th>Email</th>
                     <th>Experience</th>
                     <th>Company Name</th>
@@ -44,7 +45,6 @@
                   <tbody>
                     <% for (let i=0; i<result.length; i++) {%>
 
-                      <tr>
                         <td>
                           <%= result[i].FirstName %>
                             <%= result[i].LastName %>
@@ -59,6 +59,9 @@
                           <%= result[i].DOB %>
                         </td>
                         <td>
+                          <%= result[i].gender %>
+                        </td>
+                        <td>
                           <%= result[i].Email %>
                         </td>
                         <td>
@@ -67,19 +70,20 @@
                         <td>
                           <%= result[i].CompName %>
                         </td>
-                        <td>
+                        <td id="file">
                           <%= result[i].CV %>
                         </td>
                         <td>
                           <%= result[i].select_time %>
                             <%= result[i].select_date %>
                         </td>
-                        <td><a data-toggle="modal" data-target="#schedule">
+                        <td><a data-toggle="modal" data-target="#edit_payroll<%=result[i].id%>">
                           <button class="btn btn-success btn-sm btn-flat"><i class="fa fa-calendar"></i> Schedule</button></a>
 
-                          <a href = "mailto:<%=result[i].Email%>?body=Your%20interview%20is%20scheduled%20on%20<%=result[i].select_date %>%20at%20<%= result[i].select_time %>"><button class="btn btn-danger btn-sm btn-flat"><i class="fa fa-send"></i> send</button></a>
+                          <a href = "mailto:<%=result[i].Email%>?body=Your%20interview%20is%20scheduled%20on%20<%=result[i].select_date %>%20at%20<%= result[i].select_time %>">
+                            <button class="btn btn-danger btn-sm btn-flat"><i class="fa fa-send"></i> send</button></a>
                         </td>
-
+                      
                       </tr>
                       <%}%>
 
@@ -93,7 +97,7 @@
     </div>
     </section>
     </div>
-
+    
     <% include ./footer %>
     <% include ./placement_modal %>
   </body>

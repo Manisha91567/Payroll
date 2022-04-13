@@ -16,11 +16,9 @@ router.get('/employee', function (req, res, next) {
 
 
 //insert
-
 router.post('/add', function (req, res, next) {
 
-
-  knex('employee_list').select('id').orderBy('id', 'desc').limit(1).then(dbId => {
+knex('employee_list').select('id').orderBy('id', 'desc').limit(1).then(dbId => {
     var dob = req.body.birthdate;
     var emp_id = "TS" + req.body.firstname.toUpperCase() + dbId[0].id;
     var fname = req.body.firstname;
@@ -31,9 +29,10 @@ router.post('/add', function (req, res, next) {
     var job_type = req.body.job_type;
     var position = req.body.position;
     var joining_date = req.body.joining_date;
+    var leaving_date = req.body.leaving_date;
     var salary = req.body.salary;
 
-    knex('employee_list').insert({ emp_id: emp_id, FirstName: fname, LastName: lname, Address: add, Birthdate: dob, Contact: contact, Gender: gender, JobType: job_type, Position: position, Joining_Date: joining_date, Salary: salary }).then(result => {
+    knex('employee_list').insert({ emp_id: emp_id, FirstName: fname, LastName: lname, Address: add, Birthdate: dob, Contact: contact, Gender: gender, JobType: job_type, Position: position, Joining_Date: joining_date, Leaving_Date: leaving_date, Salary: salary }).then(result => {
       console.log(result);
       res.redirect('/employee/employee');
 
@@ -54,9 +53,10 @@ router.post('/edit', function (req, res, next) {
   var job_type = req.body.job_type;
   var position = req.body.position;
   var joining_date = req.body.joining_date;
+  var leaving_date = req.body.leaving_date;
   var salary = req.body.salary;
   
-  knex('employee_list').update({ id: id, FirstName: fname, LastName: lname, Address: add, Birthdate: dob, Contact: contact, Gender: gender, JobType: job_type, Position: position, Joining_Date: joining_date, Salary: salary }).where('id', id).then(result => {
+  knex('employee_list').update({ id: id, FirstName: fname, LastName: lname, Address: add, Birthdate: dob, Contact: contact, Gender: gender, JobType: job_type, Position: position, Joining_Date: joining_date,Leaving_Date: leaving_date, Salary: salary }).where('id', id).then(result => {
     console.log(result);
     res.redirect('/employee/employee');
 

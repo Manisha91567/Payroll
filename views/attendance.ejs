@@ -23,17 +23,16 @@
               <div class="box">
 
                 <div class="box-body">
+                  <form action="/attendance/add" method="post">
                   <table id="attendance_table" class="table table-bordered">
                     <thead>
                       
                         <th >Employee ID</th>
                         <th >Name</th>
-                        <th >In Time</th>
-                        <th >Out time</th>
-                        <th> Present</th>
-                        <th >Absent</th>
-                        <th >Leaves</th>
-                        <th >Holidays</th>
+                        <th> Date</th>
+                        <th >Time In</th>
+                        <th> Time Out</th>
+                        <th> Remarks</th>
                         <th> Tools</th>
                     </thead>
                     <tbody> 
@@ -41,22 +40,22 @@
                         
                         <tr> 
                                           
-                          <td style="text-transform:uppercase ;"><%= result[i].emp_id %></td>
-                          <td><%= result[i].FirstName  %> <%= result[i].LastName  %></td>
-                          <td><%= result[i].In_Time  %></td>
-                          <td><%= result[i].Out_Time %></td>
-                          <td><%= result[i].Present %></td>
-                          <td><%= result[i].Absent  %></td>
-                          <td><%= result[i].Leaves  %></td>
-                          <td><%= result[i].Holidays  %></td>
-                          <td><a data-toggle="modal" data-target="#edit_attendance<%=result[i].id%>" ><button class="btn btn-success btn-sm btn-flat" ><i class="fa fa-edit"></i> Edit</button></a>
-                          <a data-toggle="modal" data-target="#delete_attendance<%=result[i].id%>"><button class="btn btn-danger btn-sm btn-flat" ><i class="fa fa-trash"></i> Delete</button></a></td>
+                          <td style="text-transform:uppercase ;" name="emp_id"><%= result[i].emp_id %></td>
+                          <td><%= result[i].FirstName  %> <%= result[i].LastName  %></td> 
+                          <td><%= result[i].Date  %> </td>
+                          <td><%= result[i].Time_in %></td>
+                          <td><%= result[i].Time_out %></td>
+                          <td><%= result[i].Remarks  %></td>
+                          <td><a data-toggle="modal" data-target="#delete_attendance<%=result[i].id%>">
+                            <button class="btn btn-danger btn-sm btn-flat" ><i class="fa fa-trash"></i> Delete</button></a></td>
                           
                         </tr>
                         <%}%>                                                                                                                                          
                           
                     </tbody>
-                  </table></div></div>
+                  </table>
+                </form>
+                </div></div>
                 </div>
               </div>
             </div>

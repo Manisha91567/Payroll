@@ -1,0 +1,61 @@
+<!-- Edit -->
+
+    <div class="modal fade" id="profile_update">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><b><span class="employee_id" style="text-transform: uppercase;">
+                       Admin Profile
+                            </span></b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="POST" action="/admin/edit">
+                       
+                        <div class="form-group">
+                            <label for="edit_firstname" class="col-sm-3 control-label">Username</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"  name="username"
+                                    >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_lastname" class="col-sm-3 control-label">Password</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="password"
+                                   >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_firstname" class="col-sm-3 control-label">Firstname</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="firstname"
+                                    >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_lastname" class="col-sm-3 control-label">Lastname</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"  name="lastname"
+                                   >
+                            </div>
+                        </div>
+                       
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i
+                            class="fa fa-close"></i> Close</button>
+                    <button type="submit" class="btn btn-success btn-flat" ><i
+                            class="fa fa-check-square-o"></i> Update</button>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+  

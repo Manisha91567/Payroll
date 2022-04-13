@@ -1,4 +1,4 @@
-<% include header %>
+<% include ./header %>
 
   <body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
    
@@ -11,7 +11,7 @@
               Payroll
           </h1>
           <ol class="breadcrumb">
-            <li><a href="/admin/home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Payroll</li>
           </ol>
         </section>
@@ -22,28 +22,29 @@
               <div class="box">
                
                 <div class="box-body">
-                  <table id="employee_table" class="table table-bordered">
+                  <form action="/payroll/add" method="post">
+                  <table id="payroll_table" class="table table-bordered">
                     <thead>
                       
                         <th >Employee ID</th>
-                        <th >Name</th>
-                        <th >Joining Date</th>
+                        <th >Name</th>                       
                         <th >Total Days</th>
                         <th> Payble Days</th>
-                        <th >Gross Date</th>
+                        <th >Gross Salary</th>
                         <th >Allowance</th>
                         <th >Overtime</th>
                         <th >Issue Date</th>
                         <th >Deduction</th>
                         <th> Net Salary</th>
+                        <th> Tools</th>
                     </thead>
                     <tbody> 
                       <% for (let i=0; i<result.length; i++) {%> 
-                        <tr>                 
-                          <td style="text-transform:uppercase ;"><%= result[i].id %></td>
+                        <tr>  
+                                  
+                          <td style="text-transform:uppercase ;"><%= result[i].emp_id %></td>
                           <td><%= result[i].FirstName  %> <%= result[i].LastName  %></td>
-                          <td><%= result[i].Joining_Date  %></td>
-                          <td><%= result[i].Total_Days %></td>
+                          <td id="days"><%= result[i].Total_Days %></td>
                           <td><%= result[i].Payble_Days %></td>
                           <td><%= result[i].Gross_Salary %></td>
                           <td><%= result[i].Allowance %></td>
@@ -51,12 +52,15 @@
                           <td><%= result[i].Issue_Date  %></td>
                           <td><%= result[i].Deduction  %></td>
                           <td><%= result[i].Net_salary %></td>
-                          <td><a data-toggle="modal" data-target="#edit_employee<%=result[i].id%>" ><button class="btn btn-success btn-sm btn-flat" ><i class="fa fa-edit"></i> Edit</button></a>
-                          <a data-toggle="modal" data-target="#delete_employee<%=result[i].id%>"><button class="btn btn-danger btn-sm btn-flat" ><i class="fa fa-trash"></i> Delete</button></a></td>
+                          <td>
+                          <a data-toggle="modal" data-target="#delete_payroll<%=result[i].id%>">
+                            <button class="btn btn-danger btn-sm btn-flat" ><i class="fa fa-trash"></i> Delete</button></a></td>
                         </tr>
                         <%}%>                                                                                                                                               
                     </tbody>
-                  </table></div></div>
+                  </table>
+                </form>
+                </div></div>
                 </div>
               </div>
             </div>
@@ -64,5 +68,13 @@
         </section>   
       </div> 
            
-   <% include footer %>
+   <% include ./footer %>
+   <% include ./payroll_modal %>
+   <script>
+      function daysInThisMonth() {
+    var now = new Date();
+    return new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+    document.getElementById('days').innerHTML=daysInThisMonth;
+  }   
+   </script>
  </body>

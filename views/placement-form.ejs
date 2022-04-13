@@ -1,56 +1,192 @@
-<body>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-12  ">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header  ">
-                            <h3 class="  text-center">Techsparagus Form</h3>
-                        </div>
-                        <form id="form" action="/placement/add" method="post">
-                           <div> 
-                             <label>First Name:-</label>
-                             <input type="text" id="FName" placeholder="FirstName" name="FName"> 
-                           </div>  <br>
-                           <div>
-                             <label>Last Name:-</label>
-                             <input type="text" id="Lastname" placeholder="LastName" name="LName">
-                           </div>  <br>
-                           <div>
-                             <label>Contact:-</label>
-                             <input type="text" id="Phone" placeholder="Contact" name="Contact">
-                           </div> <br>
-                           <div>
-                             <label>Address:-</label>
-                             <input type="text" id="Address" placeholder="Address" name="Address">
-                           </div>  <br>
-                           <div>
-                             <label>date Of Birth:-</label>
-                             <input type="date" id="DOB" placeholder="DateofBirth" name="DOB">
-                           </div>  <br>
-                           <div>
-                             <label>Email:-</label>
-                             <input type="text" id="email" name="Email">
-                           </div>  <br>
-                           <div>
-                             <label>Experience:-</label>
-                             <input type="text" id="experience" name="Experience">
-                           </div>  <br>
-                           <div>
-                             <label>Company Name:-</label>
-                             <input type="text" id="compname" name="CompName">
-                           </div>  <br>
-                           <div>
-                             <label>Upload CV/Resume:-</label>
-                             <input type="file" id="myfile" name="CV">
-                           </div>  <br>
-                           <button type="submit" id="Insert" class="btn btn-default">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <style>
+    .register{
+    background: -webkit-linear-gradient(left, #982626, #15191a);
+    margin-top: 3%;
+    padding: 3%;
+    }
+    .register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+    }
+    .register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+    }
+    .register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    }
+    .register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 1s infinite alternate;
+    }
+    @-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+    }
+    @keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+    }
+    .register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+    }
+    .register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+    }
+    .btnRegister{
+   
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #bc1818;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+    }
+    .btnRegister:hover{
+        background-color: #f44336;
+  color: white;
+    }
+
+    
+    .register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+    }
+    .register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    }
+    .register .nav-tabs .nav-link:hover{
+    border: none;
+    }
+    .register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #a52121;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    }
+    .register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+    }</style></head><body><div class="container register">
+    <div class="row">
+    <div class="col-md-3 register-left">
+       
+    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="">
+    <!-- <h3>Welcome to the</h3> -->
+    <h2>TECH SPARAGUS</h2>
+    <!-- <input type="submit" name="" value="Login"><br> -->
+    </div>
+    <div class="col-md-9 register-right">
+    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+    <li class="nav-item">
+    
+    </ul>
+    
+    <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <h3 class="register-heading">Apply as a Employee</h3>
+    <div class="row register-form">
+    <div class="col-md-6">
+    <div class="form-group">
+        <form class="tab-content" action="/placement/add" method="post">  
+        
+    <input type="text" class="form-control" name="FName" placeholder="First Name *" value="">
+    </div>
+    <div class="form-group">
+        
+    <input type="text" class="form-control" name="LName" placeholder="Last Name *" value="">
+    </div>
+    <div class="form-group">
+        <textarea type="text" class="form-control" name="Address" placeholder="Address *" value=""></textarea>
         </div>
-    </section>
-</body>
+    <!-- <div class="form-group">
+     <label>Date of birth</label>
+    <input type="date" class="form-control" name="DOB" placeholder="Date of birth *" value="">
+    </div> -->
+    <div class="form-group">
+        
+    <input type="text" class="form-control" name="Experience" placeholder="Experience *" value="">
+    </div>
+    <div class="form-group">
+        
+        <input type="text" class="form-control" name="CompName" placeholder="company name *" value="">
+        </div>
+    
+        
+    <div class="form-group">
+    <div class="maxl">
+    <label class="radio inline">
+    <input type="radio" name="gender" value="male" checked="">
+    <span> Male </span>
+    </label>
+    <label class="radio inline">
+    <input type="radio" name="gender" value="female">
+    <span>Female </span>
+    </label>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+        
+    <input type="email" class="form-control" name="Email" placeholder="Your Email *" value="">
+    </div>
+    <div>
+    <input type="text" minlength="10" maxlength="10" name="phoneno" class="form-control" placeholder="Your Phone no. *" value=""></input>
+</div>
+    <div class="form-group">
+        <div class="form-group">
+            <label>Date of birth</label>
+           <input type="date" class="form-control" name="DOB" placeholder="Date of birth *" value="">
+           </div>
+   <div>
+    <label for="myfile">Select a resume:</label>
+    <input type="file" id="myfile" name="CV"><br><br>
+
+   
+    <input type="submit" class="btnRegister" value="Register">
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </script></body></html>
