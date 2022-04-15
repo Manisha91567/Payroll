@@ -12,7 +12,7 @@
 
   <script src="../assets/js/jquery-3.5.1.min.js"></script>
   <script src="../assets/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+ 
 </head>
 
 <body>
@@ -65,71 +65,39 @@
 
     </div>
     <div class="well col-lg-12">
-      <div id="table_wrapper" class="dataTables_wrapper no-footer">
-        <div class="dataTables_length" id="table_length">
-          <!-- <label> <select name="table_length" aria-controls="table" class="">
-       
-         <option value="50">50</option>
-        <option value="100">100</option> -->
-          <!-- </select> </label> -->
-        </div>
-        <div id="table_filter" class="dataTables_filter"><label></label>
-        </div>
-        <table id="table" class="table table-bordered table-striped dataTable no-footer" role="grid"
+        
+          <form >
+            <table id="user_table" class="table table-bordered table-striped dataTable no-footer" role="grid"
           aria-describedby="table_info">
-          <thead>
-            <tr role="row">
-              <th class="sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-sort="ascending"
-                aria-label="Employee Number: activate to sort column descending" style="width: 257.25px;">
-                Employee/intern ID</th>
-              <!-- <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 145.925px;">Name</th> -->
-              <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1"
-                aria-label="Date: activate to sort column ascending" style="width: 159.95px;">Date</th>
-              <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1"
-                aria-label="remark: activate to sort column ascending" style="width: 159.95px;">remark</th>
-              <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1"
-                aria-label="Log Type: activate to sort column ascending" style="width: 139.6px;">Time in</th>
-              <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1"
-                aria-label="Time: activate to sort column ascending" style="width: 107.6px;">Time out</th>
-              <!-- <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="tool: activate to sort column ascending" style="width: 107.025px;">tool</th></tr> -->
-          </thead>
+              <thead>
+                
+                  <th >Employee ID</th>
+                  <th> Name</th>
+                  <th> Date</th>
+                  <th >Time In</th>
+                  <th> Time Out</th>
+                 
+                 
+              </thead>
+              <tbody> 
+                <% for (let i=0; i<result.length; i++) {%>
+                  
+                  <tr> 
+                                    
+                    <td ><%= result[i].id %></td>
+                    <td><%= result[i].name %></td> 
+                    <td><%= result[i].date  %> </td>
+                    <td><%= result[i].timein %></td>
+                    <td><%= result[i].timeout %></td>
+                                    
+                    
+                  </tr>
+                  <%}%>                                                                                                                                          
+                    
+              </tbody>
+            </table>
+          </form>
 
-
-      
-        </table>
-
-
-
-
-
-        <script type="text/javascript">
-          $(document).ready(function () {
-            $('#table').DataTable();
-          });
-        </script>
-        <script type="text/javascript">
-          $(document).ready(function () {
-            $('.remove_log').click(function () {
-              var id = $(this).attr('data-id');
-              var _conf = confirm("Are you sure to delete this data ?");
-              if (_conf == true) {
-                $.ajax({
-                  url: 'delete_log.php?id=' + id,
-                  error: err => console.log(err),
-                  success: function (resp) {
-                    if (typeof resp != undefined) {
-                      resp = JSON.parse(resp)
-                      if (resp.status == 1) {
-                        alert(resp.msg);
-                        location.reload()
-                      }
-                    }
-                  }
-                })
-              }
-            });
-          });
-        </script>
 </body>
 
 </html>
