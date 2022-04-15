@@ -27,28 +27,25 @@
                   <table id="attendance_table" class="table table-bordered">
                     <thead>
                       
-                        <th >Employee ID</th>
+                        <th >ID</th>
                         <th >Name</th>
                         <th> Date</th>
                         <th >Time In</th>
                         <th> Time Out</th>
-                        <th> Remarks</th>
-                        <th> Tools</th>
+                       
                     </thead>
                     <tbody> 
                       <% for (let i=0; i<result.length; i++) {%>
                         
                         <tr> 
                                           
-                          <td style="text-transform:uppercase ;" name="emp_id"><%= result[i].emp_id %></td>
-                          <td><%= result[i].FirstName  %> <%= result[i].LastName  %></td> 
-                          <td><%= result[i].Date  %> </td>
-                          <td><%= result[i].Time_in %></td>
-                          <td><%= result[i].Time_out %></td>
-                          <td><%= result[i].Remarks  %></td>
-                          <td><a data-toggle="modal" data-target="#delete_attendance<%=result[i].id%>">
-                            <button class="btn btn-danger btn-sm btn-flat" ><i class="fa fa-trash"></i> Delete</button></a></td>
+                          <td ><%= result[i].id %></td>
+                          <td><%= result[i].name %></td> 
+                          <td><%= result[i].date  %> </td>
+                          <td><%= result[i].timein %></td>
+                          <td><%= result[i].timeout %></td>
                           
+                         
                         </tr>
                         <%}%>                                                                                                                                          
                           

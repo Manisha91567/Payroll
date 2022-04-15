@@ -3,8 +3,9 @@ const knex = require('../knex');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('admin');
+router.get('/admin', function(req, res, next) {
+  var result=[];
+  res.render('admin',{result:result});
 });
 
 router.get('/intern_login',function(req,res,next){
@@ -18,6 +19,13 @@ router.get('/login', function(req, res, next) {
   
   res.render('login');
 
+});
+
+router.get('/user_login', function(req, res, next) {
+  knex('1st_dec_to_31st_dec').select('*').then(result => {
+    console.log(result)
+  res.render('user_login',{ result: result })
+  });
 });
 
 //admin_update

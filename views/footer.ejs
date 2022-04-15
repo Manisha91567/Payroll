@@ -123,6 +123,20 @@
         ],
       });
   });
+  $(document).ready(function() {
+      $('#user_table').DataTable({
+        scrollY: 400,
+        dom: 'lfBtrip',
+        buttons: [{
+          extend: 'print',
+          exportOptions:{
+       columns: ':visible'
+         }
+        },
+        'excel','csv','colvis'
+        ],
+      });
+      })
   </script> 
 
   <script>

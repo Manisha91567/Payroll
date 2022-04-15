@@ -103,7 +103,24 @@
             text-align: left;
         }
     </style>
-   
+   <script>
+
+function validate() {
+        var un = document.getElementById('user').valu;
+        var pw = document.getElementById('pass').value;
+        var username = "<%= result[i].username %>" ; 
+        var password = "<%= result[i].password %>";
+        if ((un == username) && (pw == password)) {
+           
+            return true;
+           
+        }
+        else {
+            alert ("Login was unsuccessful, please check your username and password");
+            return false;
+        }
+      }
+   </script>
 </head>
 <body class="login-page" style="height: auto; min-height: 100%;">
     <div class="login-box">
@@ -114,20 +131,20 @@
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="/admin" method="post">
+            <form name="loginform" action="/admin/admin"  method="get">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="input Username" required=""
+                    <input type="text" class="form-control" id="username" name="user" placeholder="username" required=""
                         autofocus="">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="input Password"
+                    <input type="password" class="form-control" id="password" name="pass" placeholder="password"
                         required="">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                     <button type="submit" class="btn btn-primary btn-block btn-flat" name="login" onclick="login()"><i
+                     <button type="submit" class="btn btn-primary btn-block btn-flat" onsubmit="validate()"><i
                                 class="fa fa-sign-in"></i> Sign In</button>
                     </div>
                 </div>
@@ -135,6 +152,9 @@
         </div>
     </div>
    
+    
+
+     
 <!-- jQuery 3 -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
